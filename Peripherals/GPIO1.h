@@ -1,41 +1,41 @@
 #pragma once
 #include <SN32F400.h>
 
-class GPIO0 {
+class GPIO1 {
     public:
         void setOutputAtPin (int pin) {
-			 SN_GPIO0->MODE |= (1 << pin);
+			 SN_GPIO1->MODE |= (1 << pin);
 		}
 		
 		void setOutputAtOnce (int pinsCode) {
-			SN_GPIO0->MODE |= pinsCode;
+			SN_GPIO1->MODE |= pinsCode;
 		}
 		
 		void setInputAtPin (int pin) {
-            SN_GPIO0->MODE &= ~(1 << pin);
+            SN_GPIO1->MODE &= ~(1 << pin);
         }
 		
 		void setInputAtOnce (int pinsCode) {
-			SN_GPIO0->MODE &= ~pinsCode;
+			SN_GPIO1->MODE &= ~pinsCode;
 		}
 		
 		void setDataOutAtPin (int pin) {
-			SN_GPIO0->BSET |= (1 << pin);
+			SN_GPIO1->BSET |= (1 << pin);
 		}
 		
 		void setDataOutAtOnce (int pinsCode) {
-			SN_GPIO0->BSET |= pinsCode;
+			SN_GPIO1->BSET |= pinsCode;
 		}
 		
 		void clearDataOutAtPin (int pin) {
-			SN_GPIO0->BCLR |= (1 << pin);
+			SN_GPIO1->BCLR |= (1 << pin);
 		}
 		
 		void clearDataOutAtOnce (int pinsCode) {
-			SN_GPIO0->BCLR |= pinsCode;
+			SN_GPIO1->BCLR |= pinsCode;
 		}
 		
 		int getDataInAtPin (int pin) {
-			return (SN_GPIO0->DATA >> pin) & 1;
+			return (SN_GPIO1->DATA >> pin) & 1;
 		}
 };
